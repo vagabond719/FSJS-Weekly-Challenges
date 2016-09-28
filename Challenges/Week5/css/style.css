@@ -203,3 +203,7 @@ ul li {
   -webkit-animation-direction: normal, alternate;
   animation-direction: normal, alternate;
 }
+
+.modal h1 {
+  color: wheat;
+}
