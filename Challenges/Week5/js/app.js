@@ -62,32 +62,31 @@ $("#next").click(function() {
 
     Be creative, you can style/arrange the detail information however you like! 
 */
-
 function getPokeStats(pokemon) {
-        var modalHTML = "";
-        console.log(pokemon);
-        $.getJSON("http://pokeapi.co/api/v2/pokemon/" + pokemon,
-            function(json) {
-                //console.log(json)
-                testOBJ = json;
-                modalHTML += '<img class="quickRemove" src="' + json.sprites.front_default + '"><br class="quickRemove"><br class="quickRemove">'
-                $.each(json.abilities, function(i, value) {
-
-                    //console.log(value.ability.name);
-                    modalHTML += '<h1 class="quickRemove">Ability #' + (i+1) + ' : ' + value.ability.name + '</h1><br class="quickRemove">'
-                });
-                $("#myModal").append(modalHTML);
-            });
-            var modal = document.getElementById('myModal');
-            modal.style.display = "block";
-            $("#myModal").show();
-
-            var span = document.getElementsByClassName("close")[0];
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                $(".quickRemove").remove();
-                modal.style.display = "none";
-            };
-    }
-
-    
+    var modalHTML = "";
+    console.log(pokemon);
+    $.getJSON("http://pokeapi.co/api/v2/pokemon/" + pokemon, function(json) {
+        //console.log(json)
+        testOBJ = json;
+        modalHTML += '<img class="quickRemove" src="' + json.sprites
+            .front_default +
+            '"><br class="quickRemove"><br class="quickRemove">'
+        $.each(json.abilities, function(i, value) {
+            //console.log(value.ability.name);
+            modalHTML +=
+                '<h1 class="quickRemove">Ability #' + (i +
+                    1) + ' : ' + value.ability.name +
+                '</h1><br class="quickRemove">'
+        });
+        $("#myModal").append(modalHTML);
+    });
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+    $("#myModal").show();
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        $(".quickRemove").remove();
+        modal.style.display = "none";
+    };
+}
